@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red,
       body: Center( // Wrap Column with Center widget
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Register'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.yellow,
+                primary: Colors.blue,
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 textStyle: TextStyle(
                   fontSize: 20,

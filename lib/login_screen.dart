@@ -14,72 +14,74 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text('Login Screen'),
       ),
-      body: Center( 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/sally.jpg', 
-              height: 200,
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        return null;
-                      },
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Login successful')),
-                          );
-                        }
-                      },
-                      child: Text('Login'),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.yellow, // change button color to yellow
-                      ),
-                    ),
-                  ],
+      body: ListView(
+        padding: EdgeInsets.all(16),
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/sally.jpg',
+                  height: 200,
                 ),
-              ),
+                SizedBox(height: 16),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          return null;
+                        },
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Login successful')),
+                            );
+                          }
+                        },
+                        child: Text('Login'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.yellow, // change button color to yellow
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       backgroundColor: Colors.red, // set background color to red
     );
